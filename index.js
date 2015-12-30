@@ -19,8 +19,8 @@ app.get('/', function(request, response) {
 //hackmyresume does not define a JS API, so I'm calling it from bash. Bleh.
 app.get('/generate', function (request, response) {
 	var file = fs.createWriteStream("target.json");
-	var source = request.param('json');
-	var dl = http.get('source', function(r) {
+	var source = request.params['json'];
+	var dl = http.get(source, function(r) {
 		r.pipe(file);
 		response.status(200);
 	});

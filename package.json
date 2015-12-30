@@ -7,8 +7,8 @@
     "express": "4.x"
   },
   "engines": {
-    "npm": "2.1.x",
-    "node": "5.0.0"
+    "npm": "3.4.x",
+    "node": "5.0.x"
   },
   "repository": {
     "type": "git",

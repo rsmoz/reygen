@@ -1,4 +1,5 @@
-me": "reygen",
+{
+  "name": "reygen",
   "description": "resume generator",
   "version": "0.0.1",
   "engines": {

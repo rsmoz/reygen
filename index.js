@@ -19,8 +19,13 @@ app.get('/', function(request, response) {
 //hackmyresume does not define a JS API, so I'm calling it from bash. Bleh.
 app.get('/generate', function (request, response) {
 	var source = request.param("json");
-//	fetch("https://raw.githubusercontent.com/rsmoz/resume/master/resume.json").pipe(fs.createWriteStream('target.json'));
-	response.status(200).send(source);
+	fetch(source, function (err, resp, bod) {
+		if (!err && resp.statusCode == 200) {
+			console.log(bod)
+			response.status(200).send(bod);
+		}
+	})
+	
 	
 });
 

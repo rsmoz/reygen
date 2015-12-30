@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var http = require('http');
+var fetch = require('request');
 var fs = require('fs');
 
 app.set('port', (process.env.PORT || 5000));
@@ -20,11 +20,8 @@ app.get('/', function(request, response) {
 app.get('/generate', function (request, response) {
 	var file = fs.createWriteStream("target.json");
 	var source = request.params['json'];
-	var dl = http.get(source, function(r) {
-		r.pipe(file);
-		response.status(200);
-	});
-	
+	request(source).pipe(fs.createWriteStream('target.json'));
+	response.status(200);		
 	
 });
 

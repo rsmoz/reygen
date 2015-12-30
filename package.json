@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "dependencies": {
     "hackmyresume": "1.2.2",
-    "express": "4.x"
+    "express": "4.x",
+    "request": "2.67.x"
   },
   "engines": {
     "npm": "3.4.x",

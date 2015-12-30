@@ -20,7 +20,7 @@ app.get('/', function(request, response) {
 app.get('/generate', function (request, response) {
 	var source = request.params.json;
 //	fetch("https://raw.githubusercontent.com/rsmoz/resume/master/resume.json").pipe(fs.createWriteStream('target.json'));
-	response.status(200).send(json);
+	response.status(200).send(source);
 	
 });
 

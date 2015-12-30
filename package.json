@@ -3,12 +3,12 @@
   "description": "resume generator",
   "version": "0.0.1",
   "dependencies": {
-    "hackmyresume": "1.2.2"
+    "hackmyresume": "1.2.2",
+    "express": "4.x"
   },
   "engines": {
     "npm": "2.1.x",
     "node": "5.0.0",
-    "express": "4.x"
   },
   "repository": {
     "type": "git",

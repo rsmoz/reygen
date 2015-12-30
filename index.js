@@ -20,9 +20,11 @@ app.get('/', function(request, response) {
 app.get('/generate', function (request, response) {
 	var file = fs.createWriteStream("target.json");
 	var source = req.param('json');
-	var dl = http.get('source', function(response) {
-		response.pipe(file);
+	var dl = http.get('source', function(r) {
+		r.pipe(file);
+		response.status(200);
 	});
+	
 	
 });
 

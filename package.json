@@ -2,8 +2,16 @@
   "name": "reygen",
   "description": "resume generator",
   "version": "0.0.1",
+  "dependencies": {
+    "hackmyresume"
+  },
   "engines": {
     "npm": "2.1.x",
     "node": "5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rsmoz/reygen"
   }
 }
+

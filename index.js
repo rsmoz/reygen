@@ -21,7 +21,7 @@ app.get('/generate', function (request, response) {
 	var source = request.param("json");
 	fetch(source, function (err, resp, bod) {
 		if (!err && resp.statusCode == 200) {
-			console.log(bod)
+			console.log(bod);
 			response.status(200).send(bod);
 		}
 	})

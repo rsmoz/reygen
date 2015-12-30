@@ -1,0 +1,8 @@
+me": "reygen",
+  "description": "resume generator",
+  "version": "0.0.1",
+  "engines": {
+    "npm": "2.1.x",
+    "node": "5.0.0"
+  }
+}

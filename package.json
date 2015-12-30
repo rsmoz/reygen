@@ -3,7 +3,7 @@
   "description": "resume generator",
   "version": "0.0.1",
   "dependencies": {
-    "hackmyresume"
+    "hackmyresume": "1.2.2"
   },
   "engines": {
     "npm": "2.1.x",

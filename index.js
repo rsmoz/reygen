@@ -22,7 +22,17 @@ app.get('/generate', function (request, response) {
 	fetch(source, function (err, resp, bod) {
 		if (!err && resp.statusCode == 200) {
 			console.log(bod);
-			response.status(200).send(bod);
+			
+			
+			fs.writeFile("target.json", bod, function(err) {
+				if(err) {
+					return console.log(err);
+				}
+
+				console.log("The file was saved!");
+				response.status(200).send("File saved");
+			}); 
+			
 		}
 	})
 	

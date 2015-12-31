@@ -36,14 +36,14 @@ app.get('/generate', function (request, response) {
 				
 				
 				var filePath = path.join(__dirname, 'target.json');
-				var stat = fileSystem.statSync(filePath);
+				var stat = fs.statSync(filePath);
 
 				response.writeHead(200, {
 					'Content-Type': 'application/pdf',
 					'Content-Length': stat.size
 				});
 
-				var readStream = fileSystem.createReadStream(filePath);
+				var readStream = fs.createReadStream(filePath);
 				// We replaced all the event handlers with a simple call to readStream.pipe()
 				readStream.pipe(response);
 				

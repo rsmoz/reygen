@@ -11,6 +11,9 @@ Simply make a request to reygen with the URL of your JSON résumé and any other
 https://someHerokuApp.com/generate?json=https://github.com/username/resumeRepo&style=whatever
 ```
 
+```
+http://stackoverflow.com/questions/28176616/how-can-i-run-command-line-commands-on-heroku
+```
 
 ###Name
 "résumé generator" -> "ré gen" -> "rey gen" -> "reygen"

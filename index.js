@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var fetch = require('request');
 var fs = require('fs');
-path = require('path');
+var path = require('path');
 
 //Eventually use build count to version resume?
 
@@ -34,18 +34,32 @@ app.get('/generate', function (request, response) {
 
 				console.log("The file was saved!");
 				
-				
-				var filePath = path.join(__dirname, 'target.json');
-				var stat = fs.statSync(filePath);
+				exec('hackmyresume BUILD target.json TO resume.pdf',
+					function (error, stdout, stderr) {
+						console.log('stdout: ' + stdout);
+						console.log('stderr: ' + stderr);
+						if (error !== null) {
+							console.log('exec error: ' + error);
+						}
+						
+						
+						var filePath = path.join(__dirname, 'resume.pdf');
+						var stat = fs.statSync(filePath);
 
-				response.writeHead(200, {
-					'Content-Type': 'application/pdf',
-					'Content-Length': stat.size
+						response.writeHead(200, {
+							'Content-Type': 'application/pdf',
+							'Content-Length': stat.size
+						});
+
+						var readStream = fs.createReadStream(filePath);
+						// We replaced all the event handlers with a simple call to readStream.pipe()
+						readStream.pipe(response);
+						
+						
 				});
-
-				var readStream = fs.createReadStream(filePath);
-				// We replaced all the event handlers with a simple call to readStream.pipe()
-				readStream.pipe(response);
+				
+				
+				
 				
 				
 //				response.status(200).send("File saved");

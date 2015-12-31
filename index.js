@@ -2,6 +2,9 @@ var express = require('express');
 var app = express();
 var fetch = require('request');
 var fs = require('fs');
+path = require('path');
+
+//Eventually use build count to version resume?
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -24,13 +27,28 @@ app.get('/generate', function (request, response) {
 			console.log(bod);
 			
 			
-			fs.writeFile("target.json", bod, function(err) {
+			fs.writeFile(path.join(__dirname, 'target.json'), bod, function(err) {
 				if(err) {
 					return console.log(err);
 				}
 
 				console.log("The file was saved!");
-				response.status(200).send("File saved");
+				
+				
+				var filePath = path.join(__dirname, 'target.json');
+				var stat = fileSystem.statSync(filePath);
+
+				response.writeHead(200, {
+					'Content-Type': 'application/pdf',
+					'Content-Length': stat.size
+				});
+
+				var readStream = fileSystem.createReadStream(filePath);
+				// We replaced all the event handlers with a simple call to readStream.pipe()
+				readStream.pipe(response);
+				
+				
+//				response.status(200).send("File saved");
 			}); 
 			
 		}
